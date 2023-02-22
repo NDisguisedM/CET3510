@@ -1,0 +1,101 @@
+#include "stdio.h"
+#include <bitset>
+#include <iostream>
+using namespace std;
+
+int main()		//The {} solve the "variable uninitialized" problem.
+				//cin solves scanf_s complaining about buffer over/under-run problem
+{
+	//char
+	char c1NM98{};
+	cout << "The minimum value of a char is: " << CHAR_MIN << endl;
+	cout << "The maximum value of a char is: " << CHAR_MAX << endl;
+	cout << "The storage size in byte(s) of a char is: " << sizeof(c1NM98) << endl;
+	cout << "Input a HexDecimal number in the Data Type of char, for example, 8a: \n\n"<< endl;
+	cin >> c1NM98;
+	// biteset stores the number of bits
+	bitset<8 * sizeof(c1NM98)>charBits(c1NM98);
+	cout << "The converted binary value is: " << charBits << endl;
+	printf("the converted decimal value is %i\n", c1NM98);
+	printf("| ----------------------------------------------------------------------- |\n");
+	
+
+
+	//unsigned char
+	unsigned char uc1NM98{};
+	cout << "The minimum value of a char is: " << 0 << endl;
+	cout << "The maximum value of a char is: " << UCHAR_MAX << endl;
+	cout << "The storage size in byte(s) of an unsigned char is: " << sizeof(uc1NM98) << endl;
+	cout << "Input a HexDecimal number in the Data Type of unsigned char, for example, 8a: \n\n" << endl; 
+	cin >> uc1NM98;
+	// biteset stores the number of bits
+	bitset<8 * sizeof(uc1NM98)>unsignedCharBits(uc1NM98);
+	cout << "The converted binary value is: " << unsignedCharBits << endl;
+	printf("the converted decimal value is %i\n", uc1NM98);
+	printf("| ----------------------------------------------------------------------- |\n");
+	
+
+
+	//short int
+	short int si1NM98{};
+	cout << "The minimum value of a char is: " << SHRT_MIN << endl;
+	cout << "The maximum value of a char is: " << SHRT_MAX << endl;
+	cout << "The storage size in byte(s) of a char is: " << sizeof(si1NM98) << endl;
+	cout << "Input a HexDecimal number in the Data type of unsigned char, for example, 8a: \n\n" << endl;
+	cin >> si1NM98;
+	// biteset stores the number of bits
+	bitset<8 * sizeof(si1NM98)> shortIntBits(si1NM98);
+	cout << "The converted binary value is: " << shortIntBits << endl;
+	printf("the converted decimal value is %i\n", si1NM98);
+	printf("| ----------------------------------------------------------------------- |\n");
+
+
+
+	//unsigned short int
+	unsigned short int usi1NM98{};
+	cout << "The minimum value of a char is: " << 0 << endl;
+	cout << "The maximum value of a char is: " << USHRT_MAX << endl;
+	cout << "The storage size in byte(s) of a char is: " << sizeof(usi1NM98) << endl;
+	cout << "Input a HexDecimal number in the Data type of unsigned char, for example, 8a: \n\n" << endl;
+	cin >> usi1NM98;
+	// biteset stores the number of bits
+	bitset<8 * sizeof(usi1NM98)> unsignedShortIntBits(usi1NM98);
+	cout << "The converted binary value is: " << unsignedShortIntBits << endl;
+	printf("the converted decimal value is %i\n", usi1NM98);
+	printf("| ----------------------------------------------------------------------- |\n");
+
+
+
+	//int
+	int i1NM98{};
+	cout << "The minimum value of a char is: " << INT_MIN << endl;
+	cout << "The maximum value of a char is: " << INT_MAX << endl;
+	cout << "The storage size in byte(s) of a char is: " << sizeof(i1NM98) << endl;
+	cout << "Input a HexDecimal number in the Data type of unsigned char, for example, 8a: \n\n" << endl;
+	cin >> i1NM98;
+	// biteset stores the number of bits
+	bitset<8 * sizeof(i1NM98)> intBits(i1NM98);
+	cout << "The converted binary value is: " << intBits << endl;
+	printf("the converted decimal value is %i\n", i1NM98);
+	printf("| ----------------------------------------------------------------------- |\n");
+
+
+
+	//unsigned int
+	unsigned int ui1NM98{};
+	cout << "The minimum value of a char is: " << 0 << endl;
+	cout << "The maximum value of a char is: " << UINT_MAX << endl;
+	cout << "The storage size in byte(s) of a char is: " << sizeof(ui1NM98) << endl;
+	cout << "Input a HexDecimal number in the Data type of unsigned char, for example, 8a: \n\n" << endl;
+	cin >> ui1NM98;
+	// biteset stores the number of bits
+	bitset<8 * sizeof(ui1NM98)> unsignedIntBits(ui1NM98);
+	cout << "The converted binary value is: " << unsignedIntBits << endl;
+	printf("the converted decimal value is %i\n", ui1NM98);
+	printf("| ----------------------------------------------------------------------- |\n");
+	
+
+
+
+	return 0;
+}
