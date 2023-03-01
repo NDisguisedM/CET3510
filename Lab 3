@@ -1,0 +1,1431 @@
+#include <stdio.h>
+#include <iostream>
+
+// Complete this and it'll be ready to ship
+// Just add the missing letters, cuz it seems to be working better than Lab 3
+
+int main()
+{
+	char temp;
+	char r1NM98, r2NM98;
+	short int rNM98;
+	////////////////////////////////////////////////////////////////////////////////////
+	///---B Register---///
+	std::cout << "*******************************************" << std::endl;
+	std::cout << "B Register, a-A to j-J" << std::endl;
+	std::cout << "*******************************************" << std::endl;
+	// a-A
+	_asm
+	{
+		MOV BL, 'a';
+		MOV BH, 'A';
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("BH = %c, BL = %c\n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	//swap them now
+	_asm
+	{
+		MOV temp, BH;
+		MOV BH, BL;
+		MOV BL, temp;
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "///---///" << std::endl;
+	std::cout << "After Swapping" << "\n";
+
+	printf("BH = %c, BL = %c \n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x \n", r2NM98, r1NM98, rNM98);
+	////////////////////////////////////////////////////////////////////
+	///---A Register---///
+	_asm
+	{
+		MOV AL, 'a';
+		MOV AH, 'A';
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n",r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV AL, 'a';
+		MOV AH, 'A';
+		MOV temp, AH;
+		MOV AH, AL;
+		MOV AL, temp;
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98); 
+	
+	///////////////////////////////////////////////////////////////////
+	///---C register---///
+	_asm
+	{
+		MOV CL, 'a';
+		MOV CH, 'A';
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98); 
+
+	_asm
+	{
+		MOV CL, 'a';
+		MOV CH, 'A';
+		MOV temp, CH;  //CH to temp
+		MOV CH, CL;    //CL to CH
+		MOV CL, temp;  //temp to CL
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98); 
+	//////////////////////////////////////////////////////////////////
+	///---D register---///
+	_asm
+	{
+		MOV DL, 'a';
+		MOV DH, 'A';
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98); 
+
+	_asm
+	{
+		MOV DL, 'a';
+		MOV DH, 'A';
+		MOV temp, DH;  
+		MOV DH, DL;    
+		MOV DL, temp;  
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98); 
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///---B Register---///
+	std::cout << "*******************************************" << std::endl;
+	std::cout << "B Register, a-A to j-J" << std::endl;
+	std::cout << "*******************************************" << std::endl;
+	// b-B
+	_asm
+	{
+		MOV BL, 'b';
+		MOV BH, 'B';
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("BH = %c, BL = %c\n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	//swap them now
+	_asm
+	{
+		MOV temp, BH;
+		MOV BH, BL;
+		MOV BL, temp;
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "///---///" << std::endl;
+	std::cout << "After Swapping" << "\n";
+
+	printf("BH = %c, BL = %c \n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x \n", r2NM98, r1NM98, rNM98);
+	////////////////////////////////////////////////////////////////////
+	///---A Register---///
+	_asm
+	{
+		MOV BL, 'b';
+		MOV BH, 'B';
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'b';
+		MOV BH, 'B';
+		MOV temp, AH;
+		MOV AH, AL;
+		MOV AL, temp;
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////
+	///---C register---///
+	_asm
+	{
+		MOV BL, 'b';
+		MOV BH, 'B';
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV CL, 'b';
+		MOV CH, 'B';
+		MOV temp, CH;  //CH to temp
+		MOV CH, CL;    //CL to CH
+		MOV CL, temp;  //temp to CL
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+	//////////////////////////////////////////////////////////////////
+	///---D register---///
+	_asm
+	{
+		MOV BL, 'b';
+		MOV BH, 'B';
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'b';
+		MOV BH, 'B';
+		MOV temp, DH;
+		MOV DH, DL;
+		MOV DL, temp;
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///---B Register---///
+	std::cout << "*******************************************" << std::endl;
+	std::cout << "B Register, a-A to j-J" << std::endl;
+	std::cout << "*******************************************" << std::endl;
+	// c-C
+	_asm
+	{
+		MOV BL, 'c';
+		MOV BH, 'C';
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("BH = %c, BL = %c\n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	//swap them now
+	_asm
+	{
+		MOV temp, BH;
+		MOV BH, BL;
+		MOV BL, temp;
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "///---///" << std::endl;
+	std::cout << "After Swapping" << "\n";
+
+	printf("BH = %c, BL = %c \n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x \n", r2NM98, r1NM98, rNM98);
+	////////////////////////////////////////////////////////////////////
+	///---A Register---///
+	_asm
+	{
+		MOV BL, 'c';
+		MOV BH, 'C';
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'c';
+		MOV BH, 'C';
+		MOV temp, AH;
+		MOV AH, AL;
+		MOV AL, temp;
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////
+	///---C register---///
+	_asm
+	{
+		MOV BL, 'c';
+		MOV BH, 'C';
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'c';
+		MOV BH, 'C';
+		MOV temp, CH;  //CH to temp
+		MOV CH, CL;    //CL to CH
+		MOV CL, temp;  //temp to CL
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+	//////////////////////////////////////////////////////////////////
+	///---D register---///
+	_asm
+	{
+		MOV BL, 'c';
+		MOV BH, 'C';
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'c';
+		MOV BH, 'C';
+		MOV temp, DH;
+		MOV DH, DL;
+		MOV DL, temp;
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///---B Register---///
+	std::cout << "*******************************************" << std::endl;
+	std::cout << "B Register, a-A to j-J" << std::endl;
+	std::cout << "*******************************************" << std::endl;
+	// d-D
+	_asm
+	{
+		MOV BL, 'd';
+		MOV BH, 'D';
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("BH = %c, BL = %c\n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	//swap them now
+	_asm
+	{
+		MOV temp, BH;
+		MOV BH, BL;
+		MOV BL, temp;
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "///---///" << std::endl;
+	std::cout << "After Swapping" << "\n";
+
+	printf("BH = %c, BL = %c \n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x \n", r2NM98, r1NM98, rNM98);
+	////////////////////////////////////////////////////////////////////
+	///---A Register---///
+	_asm
+	{
+		MOV BL, 'd';
+		MOV BH, 'D';
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'd';
+		MOV BH, 'D';
+		MOV temp, AH;
+		MOV AH, AL;
+		MOV AL, temp;
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////
+	///---C register---///
+	_asm
+	{
+		MOV BL, 'd';
+		MOV BH, 'D';
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'd';
+		MOV BH, 'D';
+		MOV temp, CH;  //CH to temp
+		MOV CH, CL;    //CL to CH
+		MOV CL, temp;  //temp to CL
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+	//////////////////////////////////////////////////////////////////
+	///---D register---///
+	_asm
+	{
+		MOV BL, 'd';
+		MOV BH, 'D';
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'd';
+		MOV BH, 'D';
+		MOV temp, DH;
+		MOV DH, DL;
+		MOV DL, temp;
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///---B Register---///
+	std::cout << "*******************************************" << std::endl;
+	std::cout << "B Register, a-A to j-J" << std::endl;
+	std::cout << "*******************************************" << std::endl;
+	// e-E
+	_asm
+	{
+		MOV BL, 'e';
+		MOV BH, 'E';
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("BH = %c, BL = %c\n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	//swap them now
+	_asm
+	{
+		MOV temp, BH;
+		MOV BH, BL;
+		MOV BL, temp;
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "///---///" << std::endl;
+	std::cout << "After Swapping" << "\n";
+
+	printf("BH = %c, BL = %c \n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x \n", r2NM98, r1NM98, rNM98);
+	////////////////////////////////////////////////////////////////////
+	///---A Register---///
+	_asm
+	{
+		MOV BL, 'e';
+		MOV BH, 'E';
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'e';
+		MOV BH, 'E';
+		MOV temp, AH;
+		MOV AH, AL;
+		MOV AL, temp;
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////
+	///---C register---///
+	_asm
+	{
+		MOV BL, 'e';
+		MOV BH, 'E';
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'e';
+		MOV BH, 'E';
+		MOV temp, CH;  //CH to temp
+		MOV CH, CL;    //CL to CH
+		MOV CL, temp;  //temp to CL
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+	//////////////////////////////////////////////////////////////////
+	///---D register---///
+	_asm
+	{
+		MOV BL, 'e';
+		MOV BH, 'E';
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'e';
+		MOV BH, 'E';
+		MOV temp, DH;
+		MOV DH, DL;
+		MOV DL, temp;
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///---B Register---///
+	std::cout << "*******************************************" << std::endl;
+	std::cout << "B Register, a-A to j-J" << std::endl;
+	std::cout << "*******************************************" << std::endl;
+	// f-F
+	_asm
+	{
+		MOV BL, 'f';
+		MOV BH, 'F';
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("BH = %c, BL = %c\n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	//swap them now
+	_asm
+	{
+		MOV temp, BH;
+		MOV BH, BL;
+		MOV BL, temp;
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "///---///" << std::endl;
+	std::cout << "After Swapping" << "\n";
+
+	printf("BH = %c, BL = %c \n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x \n", r2NM98, r1NM98, rNM98);
+	////////////////////////////////////////////////////////////////////
+	///---A Register---///
+	_asm
+	{
+		MOV BL, 'f';
+		MOV BH, 'F';
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'f';
+		MOV BH, 'F';
+		MOV temp, AH;
+		MOV AH, AL;
+		MOV AL, temp;
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////
+	///---C register---///
+	_asm
+	{
+		MOV BL, 'f';
+		MOV BH, 'F';
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'f';
+		MOV BH, 'F';
+		MOV temp, CH;  //CH to temp
+		MOV CH, CL;    //CL to CH
+		MOV CL, temp;  //temp to CL
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+	//////////////////////////////////////////////////////////////////
+	///---D register---///
+	_asm
+	{
+		MOV BL, 'f';
+		MOV BH, 'F';
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'f';
+		MOV BH, 'F';
+		MOV temp, DH;
+		MOV DH, DL;
+		MOV DL, temp;
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///---B Register---///
+	std::cout << "*******************************************" << std::endl;
+	std::cout << "B Register, a-A to j-J" << std::endl;
+	std::cout << "*******************************************" << std::endl;
+	// g-G
+	_asm
+	{
+		MOV BL, 'g';
+		MOV BH, 'G';
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("BH = %c, BL = %c\n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	//swap them now
+	_asm
+	{
+		MOV temp, BH;
+		MOV BH, BL;
+		MOV BL, temp;
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "///---///" << std::endl;
+	std::cout << "After Swapping" << "\n";
+
+	printf("BH = %c, BL = %c \n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x \n", r2NM98, r1NM98, rNM98);
+	////////////////////////////////////////////////////////////////////
+	///---A Register---///
+	_asm
+	{
+		MOV BL, 'g';
+		MOV BH, 'G';
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'g';
+		MOV BH, 'G';
+		MOV temp, AH;
+		MOV AH, AL;
+		MOV AL, temp;
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////
+	///---C register---///
+	_asm
+	{
+		MOV BL, 'g';
+		MOV BH, 'G';
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'g';
+		MOV BH, 'G';
+		MOV temp, CH;  //CH to temp
+		MOV CH, CL;    //CL to CH
+		MOV CL, temp;  //temp to CL
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+	//////////////////////////////////////////////////////////////////
+	///---D register---///
+	_asm
+	{
+		MOV BL, 'g';
+		MOV BH, 'G';
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'g';
+		MOV BH, 'G';
+		MOV temp, DH;
+		MOV DH, DL;
+		MOV DL, temp;
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///---B Register---///
+	std::cout << "*******************************************" << std::endl;
+	std::cout << "B Register, a-A to j-J" << std::endl;
+	std::cout << "*******************************************" << std::endl;
+	// h-H
+	_asm
+	{
+		MOV BL, 'h';
+		MOV BH, 'H';
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("BH = %c, BL = %c\n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	//swap them now
+	_asm
+	{
+		MOV temp, BH;
+		MOV BH, BL;
+		MOV BL, temp;
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "///---///" << std::endl;
+	std::cout << "After Swapping" << "\n";
+
+	printf("BH = %c, BL = %c \n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x \n", r2NM98, r1NM98, rNM98);
+	////////////////////////////////////////////////////////////////////
+	///---A Register---///
+	_asm
+	{
+		MOV BL, 'h';
+		MOV BH, 'H';
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'h';
+		MOV BH, 'H';
+		MOV temp, AH;
+		MOV AH, AL;
+		MOV AL, temp;
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////
+	///---C register---///
+	_asm
+	{
+		MOV BL, 'h';
+		MOV BH, 'H';
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'h';
+		MOV BH, 'H';
+		MOV temp, CH;  //CH to temp
+		MOV CH, CL;    //CL to CH
+		MOV CL, temp;  //temp to CL
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+	//////////////////////////////////////////////////////////////////
+	///---D register---///
+	_asm
+	{
+		MOV BL, 'h';
+		MOV BH, 'H';
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'h';
+		MOV BH, 'H';
+		MOV temp, DH;
+		MOV DH, DL;
+		MOV DL, temp;
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///---B Register---///
+	std::cout << "*******************************************" << std::endl;
+	std::cout << "B Register, a-A to j-J" << std::endl;
+	std::cout << "*******************************************" << std::endl;
+	//Are you ready, kids?
+	// i-I , Captain!
+	//OOOOOOOOO, Who lives in a pineaple, under a sea...?!
+	_asm
+	{
+		MOV BL, 'i';
+		MOV BH, 'I';
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("BH = %c, BL = %c\n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	//swap them now
+	_asm
+	{
+		MOV temp, BH;
+		MOV BH, BL;
+		MOV BL, temp;
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "///---///" << std::endl;
+	std::cout << "After Swapping" << "\n";
+
+	printf("BH = %c, BL = %c \n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x \n", r2NM98, r1NM98, rNM98);
+	////////////////////////////////////////////////////////////////////
+	///---A Register---///
+	_asm
+	{
+		MOV BL, 'i';
+		MOV BH, 'I';
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'i';
+		MOV BH, 'I';
+		MOV temp, AH;
+		MOV AH, AL;
+		MOV AL, temp;
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////
+	///---C register---///
+	_asm
+	{
+		MOV BL, 'i';
+		MOV BH, 'I';
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'i';
+		MOV BH, 'I';
+		MOV temp, CH;  //CH to temp
+		MOV CH, CL;    //CL to CH
+		MOV CL, temp;  //temp to CL
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+	//////////////////////////////////////////////////////////////////
+	///---D register---///
+	_asm
+	{
+		MOV BL, 'i';
+		MOV BH, 'I';
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'i';
+		MOV BH, 'I';
+		MOV temp, DH;
+		MOV DH, DL;
+		MOV DL, temp;
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///---B Register---///
+	std::cout << "*******************************************" << std::endl;
+	std::cout << "B Register, a-A to j-J" << std::endl;
+	std::cout << "*******************************************" << std::endl;
+	// j-J
+	_asm
+	{
+		MOV BL, 'j';
+		MOV BH, 'J';
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("BH = %c, BL = %c\n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	//swap them now
+	_asm
+	{
+		MOV temp, BH;
+		MOV BH, BL;
+		MOV BL, temp;
+		MOV r1NM98, BL;
+		MOV r2NM98, BH;
+		MOV rNM98, BX;
+	}
+	std::cout << "///---///" << std::endl;
+	std::cout << "After Swapping" << "\n";
+
+	printf("BH = %c, BL = %c \n", r2NM98, r1NM98);
+
+	printf("BH = 0x%x, BL = 0x%x, BX = 0x%x \n", r2NM98, r1NM98, rNM98);
+	////////////////////////////////////////////////////////////////////
+	///---A Register---///
+	_asm
+	{
+		MOV BL, 'j';
+		MOV BH, 'J';
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'j';
+		MOV BH, 'J';
+		MOV temp, AH;
+		MOV AH, AL;
+		MOV AL, temp;
+		MOV r1NM98, AL;
+		MOV r2NM98, AH;
+		MOV rNM98, AX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("AH = %c, AL = %c\n", r2NM98, r1NM98);
+
+	printf("AH = 0x%x, AL = 0x%x, AX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	///////////////////////////////////////////////////////////////////
+	///---C register---///
+	_asm
+	{
+		MOV BL, 'j';
+		MOV BH, 'J';
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'j';
+		MOV BH, 'J';
+		MOV temp, CH;  //CH to temp
+		MOV CH, CL;    //CL to CH
+		MOV CL, temp;  //temp to CL
+		MOV r1NM98, CL;
+		MOV r2NM98, CH;
+		MOV rNM98, CX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("CH = %c, CL = %c\n", r2NM98, r1NM98);
+
+	printf("CH = 0x%x, CL = 0x%x, CX = 0x%x\n", r2NM98, r1NM98, rNM98);
+	//////////////////////////////////////////////////////////////////
+	///---D register---///
+	_asm
+	{
+		MOV BL, 'j';
+		MOV BH, 'J';
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "Before Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+	_asm
+	{
+		MOV BL, 'j';
+		MOV BH, 'J';
+		MOV temp, DH;
+		MOV DH, DL;
+		MOV DL, temp;
+		MOV r1NM98, DL;
+		MOV r2NM98, DH;
+		MOV rNM98, DX;
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "After Swapping" << std::endl;
+
+	printf("DH = %c, DL = %c\n", r2NM98, r1NM98);
+
+	printf("DH = 0x%x, DL = 0x%x, DX = 0x%x\n", r2NM98, r1NM98, rNM98);
+
+
+	system("pause");
+	return 0;
+}
