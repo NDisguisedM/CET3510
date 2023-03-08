@@ -1,0 +1,153 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------//
+	//4.2 8-bit arrays
+	char sc8_arr[5] = { 0x41, 0x42, 0x59, 0x79, 0x7A };
+	char *scPtr0, *scPtr1, *scPtr2, *scPtr3, *scPtr4;
+	int md[5], madd[5];
+	int i;
+
+	// address for each element in an array sc8_arr[5]
+	scPtr0 = &sc8_arr[0];
+	scPtr1 = &sc8_arr[1];
+	scPtr2 = &sc8_arr[2];
+	scPtr3 = &sc8_arr[3];
+	scPtr4 = &sc8_arr[4];
+
+	//display Hex, Decimal, and char value of each element of the char array
+	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+	printf("-------The Value of each element of 8-bit array---------\n");
+	for (i = 0; i < 5; i++)
+	{
+		printf("The value of element %d in an array 0x%x, %d, %c\n", i, sc8_arr[i], sc8_arr[i], sc8_arr[i]);
+	}
+	//display address in hex for each element of char array
+	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+	printf("----------The addressof each element of 8-bit array----------\n");
+	for (i = 0; i < 5; i++)
+	{
+		printf("The value of element %d in an array 0x%x\n", i, scPtr0+i);
+	}
+	// find the total numbers in byte of an 8-bit array
+	
+	printf("--------The size information in bytes of an 8-bit array------\n");
+	printf("The total numbers in bytes of an 8-bit array with 5 elements is %d bytes\n", sizeof(sc8_arr));
+	//find the number of bytes in each element of array
+	for (i = 0; i < 5; i++)
+	{
+		md[i] = sizeof(sc8_arr[i]);
+		madd[i] = sizeof(scPtr0 + i);
+		printf("---------------------------------\n");
+		printf("The size of element %d is %d bytes\n", i, md[i]);
+		printf("The size of the address of the element %d is %d bytes\n", i, madd[i]);
+	}
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------//
+	
+
+
+
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------//
+	//4.2 16-bit arrays
+	cout << "/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-" << endl; //separator
+	cout << "Part 2: 16-bit" << endl; //separator message
+	
+	int const size16b = 4;								  //size is already taken
+	short int sh16_arr[size16b] = { -1, -2, 1000, 2000 }; //16-bit array //almost forgot size is size2
+	short *svPtr0, *svPtr1, *svPtr2, *svPtr3;			  //pointers to store addresses
+	int md16[size16b], madd16[size16b];
+	int i16b;											  // i for index
+
+	// address for each element in an array sh16_arr[4]
+	svPtr0 = &sh16_arr[0];
+	svPtr1 = &sh16_arr[1];
+	svPtr2 = &sh16_arr[2];
+	svPtr3 = &sh16_arr[3];
+	
+	//display Hex, Decimal, and char value of each element of the char array
+	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+	printf("-------The Value of each element of 16-bit array---------\n");
+	for (i16b = 0; i16b < 4; i16b++)
+	{
+		printf("The value of element %d in an array 0x%x, %d\n", i16b, sh16_arr[i16b], sh16_arr[i16b]); 
+	}
+	//display address in hex for each element of char array
+	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+	printf("----------The addressof each element of 16-bit array----------\n");
+	for (i16b = 0; i16b < 4; i16b++)
+	{
+		printf("The value of element %d in an array 0x%x\n", i16b, svPtr0 + i16b); //don't forget to change out pointers when copy-pasting your own code
+	}
+	// find the total numbers in byte of an 16-bit array
+
+	printf("--------The size information in bytes of an 8-bit array------\n");
+	printf("The total numbers in bytes of an 8-bit array with 5 elements is %d bytes\n", sizeof(sh16_arr));
+	//find the number of bytes in each element of array
+	for (i16b = 0; i16b < 4; i16b++)
+	{
+		md16[i16b] = sizeof(sh16_arr[i16b]); //memory corruption around md16 and madd16, because of using i instead of i16b. 
+		madd16[i16b] = sizeof(svPtr0 + i16b);
+		printf("---------------------------------\n");
+		printf("The size of element %d is %d bytes\n", i16b, md16[i16b]);
+		printf("The size of the address of the element %d is %d bytes\n", i16b, madd16[i16b]);
+	}
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------//
+	
+
+
+
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------//
+	//4.3 32-bit arrays
+	cout << "/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-" << endl; //separator
+	cout << "Part 3: 32-bit" << endl;                     //separator message
+
+	int const size32b = 4;								  //size is already taken
+	int i32_arr[size32b] = {0x8000000, 0x0000ffff, -660000, 6600000};		  //16-bit array //almost forgot size is size2
+	int *ivPtr0, *ivPtr1, *ivPtr2, *ivPtr3;				  //pointers to store addresses
+	int md32[size32b], madd32[size32b];
+	int i32b;											  // i for index
+
+	// address for each element in an array sh16_arr[4]
+	ivPtr0 = &i32_arr[0];
+	ivPtr1 = &i32_arr[1];
+	ivPtr2 = &i32_arr[2];
+	ivPtr3 = &i32_arr[3];
+
+	//display Hex, Decimal, and char value of each element of the char array
+	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+	printf("-------The Value of each element of 32-bit array---------\n");
+	for (i32b = 0; i32b < 4; i32b++)
+	{
+		printf("The value of element %d in an array 0x%x, %d\n", i32b, i32_arr[i32b], i32_arr[i32b]);
+	}
+	//display address in hex for each element of char array
+	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+	printf("----------The addressof each element of 32-bit array----------\n");
+	for (i32b = 0; i32b < 4; i32b++)
+	{
+		printf("The value of element %d in an array 0x%x\n", i32b, ivPtr0 + i32b); 
+	}
+	// find the total numbers in byte of an 32-bit array
+
+	printf("--------The size information in bytes of an 8-bit array------\n");
+	printf("The total numbers in bytes of an 8-bit array with 5 elements is %d bytes\n", sizeof(i32_arr));
+	//find the number of bytes in each element of array
+	for (i32b = 0; i32b < 4; i32b++)
+	{
+		md32[i32b] = sizeof(i32_arr[i32b]); 
+		madd32[i32b] = sizeof(ivPtr0 + i32b);
+		printf("---------------------------------\n");
+		printf("The size of element %d is %d bytes\n", i32b, md32[i32b]);
+		printf("The size of the address of the element %d is %d bytes\n", i32b, madd32[i32b]);
+	}
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------//
+	
+
+
+
+	system("pause");
+	return 0;
+}
