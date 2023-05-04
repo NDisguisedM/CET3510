@@ -1,0 +1,154 @@
+#include <iostream>
+#include <bitset>
+#include <stdio.h>
+//----------------------Scope Resolutions--------------------------//
+using std::endl;
+using std::cout;
+using std::cin;
+using std::bitset;
+using std::hex;
+
+int main()
+{
+	unsigned short packedDateNM98;
+	unsigned char mNM98;
+	unsigned char dNM98;
+	unsigned char yNM98;
+	int countNM98 = 0;
+
+
+	srand(time(0)); //randomize seed by using time
+	unsigned char dayNM98 = (unsigned char)rand() % 31 + 1;
+	unsigned char monthNM98 = (unsigned char)rand() % 12 + 1;
+	unsigned char yearNM98 = (unsigned char)rand() % 99 + 1;
+	
+	cout << "The generated day, month, year (In decimal format) are:\n";
+	printf("%u\t %u\t %u\n", dayNM98, monthNM98, yearNM98);
+	cout << "The generated day, month, year (In hex format) are:\n";
+	printf("0x%x\t 0x%x\t 0x%x\n", dayNM98, monthNM98, yearNM98);
+
+	bitset<8>dayBitsNM98(dayNM98);
+	cout << "day bits:\t" << dayBitsNM98;
+	bitset<8>monthBitsNM98(monthNM98);
+	cout << " month bits:\t" << monthBitsNM98;
+	bitset<8>yearBitsNM98(yearNM98);
+	cout << " year bits:\t" << yearBitsNM98;
+
+	_asm
+	{
+		MOV BL, monthNM98; //00000000 00000000
+		SHL BX, 5;			
+		OR BL, dayNM98;
+		SHL BX, 7;
+		OR BL, yearNM98;
+		MOV packedDateNM98, BX;
+	}
+	cout << "\n--------------------------------------------\n";
+	cout << "The packed date in hex is \t0x" << hex << packedDateNM98 << endl;
+
+	bitset<16>packedBitsNM98(packedDateNM98);
+	cout << "The packed date in binary is \t" << packedBitsNM98 << endl;
+	cout << "--------------------------------------------\n";
+
+	_asm
+	{
+		MOV AX, packedDateNM98;	// set
+		AND AX, 0xF000;			//xxxx0000 00000000
+		ROL AX, 4;				//00000000 0000xxxx
+		MOV mNM98, AL;			// extract the needed part
+		MOV AX, packedDateNM98; // reset
+		AND AX, 0x0F80;
+		ROR AX, 7;
+		MOV dNM98, AL;
+		MOV AX, packedDateNM98;
+		and AX, 0x007f;
+		mov yNM98, AL;
+	}
+	cout << "The retrieved day, month, and year from bit string (in decimal format) are:\n";
+	printf("%u\t %u\t %u\n", dayNM98, monthNM98, yearNM98);
+	cout << "THe retrieved day, month, and year from bit string (in hex format) are:\n";
+	printf("0x%x\t 0x%x\t 0x%x\n", dayNM98, monthNM98, yearNM98);
+
+	//part 2
+	cout << "============================================PART 2==================================================\n";
+	
+	char ch1NM98 = 'a';
+	char ch2NM98 = 'm';
+	char ch3NM98 = 'p';
+	char ch4NM98 = 'm';
+	
+
+	unsigned int packedTimeNM98 = 0;
+	unsigned char hrNM98 = 0;
+	unsigned char minNM98 = 0;
+	unsigned char secNM98 = 0;
+
+	unsigned char hourNM98 = (unsigned char)rand() % 11 + 0;
+	unsigned char minuteNM98 = (unsigned char)rand() % 59 + 0;
+	unsigned char secondNM98 = (unsigned char)rand() % 59 + 0;
+	
+	cout << "The generated hour, minute, second, PM or AM in decimal format are:\n";
+	printf("%u:%u:%u %c%c \n",hourNM98, minuteNM98, secondNM98, ch1NM98, ch2NM98);
+
+	cout << "The generated hour, minute, second, PM or AM in binary formal are:\n";
+	bitset<4>hourBitsNM98(hourNM98);
+	cout << " hour bits:\t" << hourBitsNM98 << "\t";;
+	bitset<6>minuteBitsNM98(minuteNM98); 
+	cout << " minute bits:\t" << minuteBitsNM98 << "\t";;
+	bitset<6>secondBitsNM98(secondNM98);					//16 bits
+	cout << " second bits:" << secondBitsNM98 << "\t";
+	bitset<8>ch1BitsNM98(ch1NM98);
+	cout << " ch1 bits:\t" << ch1BitsNM98 << "\t";;
+	bitset<8>ch2BitsNM98(ch2NM98);							//full 32 bits
+	cout << " ch2 bits:\t" << ch2BitsNM98 << "\t";;
+
+	_asm
+	{
+		MOV BL, hourNM98;		//00000000 00000000 00000000 0000HHHH
+		SHL EBX, 6;				//00000000 00000000 000000HH HH000000
+		OR BL, minuteNM98;		//00000000 00000000 000000HH HHMMMMMM
+		SHL EBX, 6;				//00000000 00000000 HHHHMMMM MM000000
+		OR BL, secondNM98;		//00000000 00000000 HHHHMMMM MMSSSSSS
+		SHL EBX, 8;				//00000000 HHHHMMMM MMSSSSSS 00000000
+		OR BL, ch1NM98;			//00000000 HHHHMMMM MMSSSSSS	a
+		SHL EBX, 8;				//HHHHMMMM MMSSSSSS		a	 00000000
+		OR BL, ch2NM98;			//HHHHMMMM MMSSSSSS		a		m
+		MOV packedTimeNM98, EBX;
+	}
+
+	cout << "\n\n--------------------------------------------\n";
+	cout << "The packed time in hex format is\t0x " << hex << packedTimeNM98 << endl;
+	bitset<32>packedTimeBitsNM98(packedTimeNM98);
+	cout << "packed time:\t" << packedTimeBitsNM98 << endl;
+	cout << "--------------------------------------------\n";
+	_asm
+	{
+		MOV EAX, packedTimeNM98;//set
+		AND EAX, 0xF0000000;	//xxxx0000 00000000 00000000 00000000 - letting hour through, all else set to 0
+		ROL EAX, 4;				//00000000 00000000 00000000 0000xxxx - hour is now in AL
+		MOV hourNM98, AL;		//extracting hour
+		MOV EAX, packedTimeNM98;//reset
+		AND EAX, 0x0FC00000;	//0000xxxx xx000000 00000000 00000000
+		ROL EAX, 10;			//00000000 00000000 00000000 00xxxxxx
+		MOV minuteNM98, AL;		//extracting minute
+		MOV EAX, packedTimeNM98;//reset
+		AND EAX, 0x003F0000;	//00000000 00xxxxxx 00000000 00000000
+		ROL EAX, 16;			//00000000 00000000 00000000 00xxxxxx
+		MOV secondNM98, AL;		//extracting second
+		MOV EAX, packedTimeNM98;//reset
+		AND EAX, 0x0000FF00;	//00000000 00000000 xxxxxxxx 00000000
+		ROL EAX, 24;			//00000000 00000000 00000000 xxxxxxxx
+		MOV ch1NM98, AL;		//extracting 'a'
+		MOV EAX, packedTimeNM98;//reset
+		AND EAX, 0x000000FF;	//00000000 00000000 00000000 xxxxxxxx			
+		MOV ch2NM98, AL;		//extracting 'a'
+	}
+
+	cout << "The retrieved hour, minute, and second (in decimal format):\n";
+	printf("%u:%u:%u %c%c\n", hourNM98, minuteNM98, secondNM98, ch1NM98, ch2NM98);
+	
+	system("pause");
+	exit(0);
+	return 0;
+
+}
