@@ -1,0 +1,205 @@
+#include <iostream>
+#include <time.h>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::hex;
+using std::dec;
+#define size 6
+
+int main()
+{
+	//---Variable Declarations---//
+	int i;
+	int arr_data[size];
+	int arr_pop[size];
+	int stack_addr_push[size];
+	int stack_addr_pop[size];
+	int ESPb, ESPa;
+	int temp = 0;
+	
+	//Part 2
+	int num;
+	int espvalue0, espvalue1;
+	int count = 0; 
+	
+
+	//---Random---//
+	srand(time(0));
+
+
+	//Part 1
+	for (i = 0; i < size; i++)
+	{
+		arr_data[i] = rand() % 100;
+	}
+	cout << "Generated random numbers stored in the array\n";
+	for (i = 0; i < size; i++)
+	{
+		cout << arr_data[i]<<" ";
+	}
+	cout << endl;
+	cout << "====================PUSH====================\n";
+	_asm
+	{
+		mov ESPb, ESP;
+	}
+	cout << "THe hex value of the ESP before PUSH instruction is executed" << hex << ESPb << endl;
+	for (i = 0; i < size; i++)
+	{
+		temp = arr_data[i]; 
+		_asm
+		{
+			MOV EAX, temp;
+			PUSH EAX;		//temp is in the stack now
+			MOV ESPa, ESP;
+		}
+		stack_addr_push[i] = ESPa;
+		cout << "PUSH the number " << dec << arr_data[i] << " onto the stack\n";
+		cout << "The hex value of ESP aftehr the PUSH instruction is executed " << hex << ESPa << endl;
+	}
+	cout << endl;
+	cout << "====================POP====================\n";
+	_asm
+	{
+		MOV ESPb, ESP;
+	}
+	cout << "The hex value of the ESP before the POP instruction is executed" << hex << ESPb << endl;
+	for (i = 0; i < size; i++)
+	{
+		_asm
+		{
+			POP EAX;		//temp is out of stack now
+			MOV ESPa, ESP;
+			MOV temp, EAX;
+		}
+		arr_pop[i] = temp;
+		stack_addr_pop[i] = ESPa;
+		cout << "The number " << dec << arr_pop[i] << " popped off from the stack\n";
+		cout << "The hex value of the ESP after the POP instruction is executed" << hex << ESPa << endl;
+	}
+	cout << endl;
+	cout << "========================================================\n";
+	cout << "The data stored onto stack in order are\n";
+	for (i = 0; i < size; i++)
+	{
+		cout << dec << arr_data[i]<<" ";
+	}
+	cout << endl;
+	cout << "_________________________________________________________\n";
+	cout << "The ESP addresses onto the stack in order are\n";
+	for (i = 0; i < size; i++)
+	{
+		cout << hex << stack_addr_push[i] << " ";
+	}
+	cout << endl;
+	cout << "========================================================\n";
+	cout << "The values popped off from the stack in order are\n";
+	for (i = 0; i < size; i++)
+	{
+		cout << dec << arr_pop[i] << " ";
+	}
+	cout << endl;
+	cout << "_________________________________________________________\n";
+	cout << "The ESP addressses popped off the stack in order are\n";
+	for (i = 0; i < size; i++)
+	{
+		cout << hex << stack_addr_pop[i] << " ";
+	}
+	cout << endl;
+	cout << "\n"; 
+	
+
+	//Part 2
+	cout << "================================PART 2==============================\n";
+	while (count < size)
+	{
+		num = rand() % 100;
+		if (num % 2 == 0)
+		{
+			arr_data[count] = num;
+			count++;
+		}
+	}
+	cout << "Generate even random numbers stored at the array\n";
+	for (i = 0; i < count; i++)
+	{
+		cout << dec <<arr_data[i] << " ";
+	}
+
+	cout << endl;
+	cout << "====================PUSH====================\n";
+	cout << "______________save initial ESP______________\n";
+	_asm
+	{
+		MOV espvalue0, ESP;
+	}
+	cout << "the hex value of the ESP before the PUSH instruction is executed\n0x" << hex << espvalue0 << endl;
+	for (i = 0; i < size; i++)
+	{
+		temp = arr_data[i];
+		_asm//temp to stack
+		{
+			MOV EAX, temp;
+			PUSH EAX;		
+			MOV espvalue1, ESP;
+		}
+	}
+	cout << "The hex value of ESP after the PUSH instruction is executed\n0x" << hex << espvalue1 << endl;
+	cout << endl;
+	cout << "====================POP====================\n";
+	_asm
+	{
+		MOV espvalue0, ESP;
+	}
+	cout << "The hex valuye of the ESP before the POP instruction is executed " << hex << espvalue0 << endl;
+	for (i = 0; i < size; i++)
+	{
+		_asm
+		{
+			POP EAX;		//temp is out of stack now
+			MOV espvalue1, ESP;
+			MOV temp, EAX;
+		}
+		arr_pop[i] = temp;
+		stack_addr_pop[i] = espvalue1;
+		cout << "The number " << dec << arr_pop[i] << " popped off from the stack\n";
+		cout << "The hex value of the ESP after the POP instruction is executed" << hex << espvalue1 << endl;
+	}
+	cout << endl;
+	cout << "========================================================\n";
+	cout << "The data stored into the stack in order are \n";
+	for (i = 0; i < size; i++)
+	{
+		cout << dec << arr_data[i];
+	}
+	cout << endl;
+	cout << "_________________________________________________________\n";
+	cout << "The ESP addresses stored in order from the stack are" << endl;
+	for (i = 0; i < size; i++)
+	{
+		cout << hex << stack_addr_push[i]<<" ";
+	}
+	cout << endl;
+	cout << "========================================================\n";
+	cout << "The values stored in order after being popped off from the stack" << endl;
+	for (i = 0; i < size; i++)
+	{
+		cout << dec << arr_pop[i]<<" ";
+	}
+	cout << endl;
+	cout << "_________________________________________________________\n";
+	cout << "The ESP addresses in order popped from the stack" << endl;
+	for (i = 0; i < size; i++)
+	{
+		cout << hex << stack_addr_pop[i] << " ";
+	}
+	cout << endl;
+
+	
+
+	system("pause");
+	exit(0);
+	return 0;
+}
