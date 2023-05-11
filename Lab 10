@@ -175,7 +175,7 @@ int main()
 	cout << "The data stored into the stack in order are \n";
 	for (iNM98 = 0; iNM98 < sizeNM98; iNM98++)
 	{
-		cout << dec << arr_dataNM98[iNM98];
+		cout << dec << arr_dataNM98[iNM98]<<" ";
 	}
 	cout << endl;
 	cout << "_________________________________________________________\n";
@@ -261,7 +261,7 @@ int main()
 	cout << "The data stored into the stack in order are \n";
 	for (iNM98 = 0; iNM98 < sizeNM98; iNM98++)
 	{
-		cout << dec << arr_dataNM98[iNM98];
+		cout << dec << arr_dataNM98[iNM98]<<" ";
 	}
 	cout << endl;
 	cout << "_________________________________________________________\n";
