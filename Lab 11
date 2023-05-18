@@ -443,6 +443,3 @@ double dpower(double dNM98, double powerNM98)
 }
 
 
-
-
-//don't forget variable names
