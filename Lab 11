@@ -3,382 +3,446 @@
 #include <stdlib.h>
 #include <time.h>
 
+
 using std::cout;
 using std::cin;
-using std::endl;
-//using std::hex;
-//using std::dec;
+using std::endl; //NM98
 
-float faddition(float x, float y);
-float fsubtraction(float x, float y);
-float fmultiplication(float x, float y);
-float fdivision(float dividend, float divisor);
-float fsquareroot(float x);
-float fabsolute(float x);
-float temperatureConv(float fahrenheit);
 
-double daddition(double x, double y);
-double dsubtraction(double x, double y);
-double dmultiplication(double x, double y); 
-double ddivision(double divident, double divisor);
-double dpower(double d, double power);
+//Part 1 functions:
+float faddition(float xNM98, float yNM98);
+float fsubtraction(float xNM98, float yNM98);
+float fmultiplication(float xNM98, float yNM98);
+float fdivision(float dividendNM98, float divisorNM98);
+double daddition(double xNM98, double yNM98);
+double dsubtraction(double xNM98, double yNM98);
 
+//Part 2 functions:
+float fsquareroot(float xNM98);
+float fabsolute(float xNM98);
+float temperatureConv(float fahrenheitNM98);
+double dmultiplication(double xNM98, double yNM98);
+double ddivision(double dividentNM98, double divisorNM98);
+double dpower(double dNM98, double powerNM98);
 
 
 int main()
 {
-	char ch, ch1, ch2, ch3;
-	float f1, f2, fsum, fsub, fprod, fquot,fsqrt, fabs, ftempConv;
-	double d1, d2, dsum, dsub;// , dprod, dquot, dpow;
+	//declaration of many variables, inline to save space
+	char chNM98, ch1NM98, ch2NM98, ch3NM98;
+	float f1NM98, f2NM98, fsumNM98, fsubNM98, fprodNM98, fquotNM98, fsqrtNM98, fabsNM98, ftempConvNM98;
+	double d1NM98, d2NM98, dsumNM98, dsubNM98, dprodNM98, dquotNM98, dpowNM98;
 	cout << "Start the floating point calculator? Y/N\n";
-	cin >> ch;
-	ch1 = ch;
+	cin >> chNM98;
+	ch1NM98 = chNM98;
 
-	while (ch1 == 'Y' || ch1 == 'y')
+	while (ch1NM98 == 'Y' || ch1NM98 == 'y')
 	{
+	MenuNM98:
 		cout << "MENU:\n";
 		cout << "1, Single precision floating point arithmetic operation(32-bit)\n";
 		cout << "2, Double precision floating point arithmetic operation(64-bit)\n";
 		cout << "3, Exit\n";
-		
-		cin >> ch;
-		cout << "You chose: " << ch << endl;
+
+		cin >> chNM98;
+		cout << "You chose: " << chNM98 << endl;
 		cout << "Menu Options:\n";
-		ch2 = ch;
-		if (ch2 == '1')
+		ch2NM98 = chNM98;
+		if (ch2NM98 == '1')
 		{
 		Submenu1:
 			cout << "a, Input two floating point operands for addition and display the sum in the decimal format\n";
 			cout << "b, Input two floating point operands for subtraction and display the difference in the decimal format\n";
 			cout << "c, Input two floating point operands for multiplication and display the product in the decimal format\n";
 			cout << "d, Input two floating point operands for division and display the quotient in the decimal format\n";
+			cout << "e, Input one floating point operand  for finding the square root and display the result in decimal format\n";
+			cout << "f, Input one floating point operand  for finding the absolute value and display the result in decimal format\n";
+			cout << "g, Input two floating point operands for Conversion of Fahrenheit to Celsius and display the result in decimal format\n";
 			cout << "q, Quit\n";
 
-			cin >> ch;
-			cout << "You chose: " << ch << endl; 
-			ch3 = ch;
-			switch(ch3) 
+			cin >> chNM98;
+			cout << "You chose: " << chNM98 << endl;
+			ch3NM98 = chNM98;
+			switch (ch3NM98)
 			{
-				case'a':
-				{
-					cout << "Input the two floating point operands in decimal format: \n";
-					cin >> f1;
-					cin >> f2;
-					cout << "The first floating point value is " << f1 << endl;
-					cout << "The second floating point value is " << f2 << endl;
-					fsum = faddition(f1, f2);
-					cout << "The sum of " << f1 << " and " << f2 << " is " << fsum << endl;
-					cout << "=============================================================";
-					break;
-				}
-				case'b':
-				{
-					cout << "Input the two floating point operands in decimal format: \n";
-					cin >> f1;
-					cin >> f2;
-					cout << "The first floating point value is " << f1 << endl;
-					cout << "The second floating point value is " << f2 << endl;
-					fsub = fsubtraction(f1, f2);
-					cout << "The difference of " << f1 << " and " << f2 << " is " << fsub << endl;
-					cout << "=============================================================";
-					break;
-				}
-				case'c':
-				{
-					cout << "Input the two floating point operands in decimal format: \n";
-					cin >> f1;
-					cin >> f2;
-					cout << "The first floating point value is " << f1 << endl;
-					cout << "The second floating point value is " << f2 << endl;
-					fprod = fmultiplication(f1, f2);
-					cout << "The product of " << f1 << " and " << f2 << " is " << fprod << endl;
-					cout << "=============================================================";
-					break;
-				}
-				case'd':
-				{
-					cout << "Input the two floating point operands in decimal format: \n";
-					cin >> f1;
-					cin >> f2;
-					cout << "The first floating point value is " << f1 << endl;
-					cout << "The second floating point value is " << f2 << endl;
-					fquot = fdivision(f1, f2);
-					cout << "The quotient of " << f1 << " and " << f2 << " is " << fquot << endl;
-					cout << "=============================================================";
-					break;
-				}
-				case'e': //sqrt done
-				{
-					cout << "Input the two floating point operands in decimal format: \n";
-					cin >> f1;
-					cout << "The first floating point value is " << f1 << endl;
-					fsqrt = fsquareroot(f1);
-					cout << "The sqrt of " << f1 << " is " << fsqrt << endl;
-					cout << "=============================================================";
-					break;
-				}
-				case'f'://abs done
-				{
-					cout << "Input the two floating point operands in decimal format: \n";
-					cin >> f1;
-					cout << "The first floating point value is " << f1 << endl;
-					fabs = fabsolute(f1);
-					cout << "The absolute value of " << f1 << " is " << fabs << endl;
-					cout << "=============================================================";
-					break;
-				}
-				case'g'://FtempC done
-				{
-					cout << "Input the two floating point operands in decimal format: \n";
-					cin >> f1;
-					cin >> f2;
-					cout << "The first floating point value is " << f1 << endl;
-					cout << "The second floating point value is " << f2 << endl;
-					ftempConv = temperatureConv(f1);
-					cout << "The temperature in C of " << f1 << "F, is: " << ftempConv << endl;
-					cout << "=============================================================";
-					break;
-				}
-				default: goto QuitLable;
+			case'a':
+			{
+				cout << "Input the two floating point operands in decimal format: \n";
+				cin >> f1NM98;
+				cin >> f2NM98;
+				cout << "The first floating point value is " << f1NM98 << endl;
+				cout << "The second floating point value is " << f2NM98 << endl;
+				fsumNM98 = faddition(f1NM98, f2NM98);
+				cout << "The sum of " << f1NM98 << " and " << f2NM98 << " is " << fsumNM98 << endl;
+				cout << "=============================================================\n";
+				break;
 			}
-			goto Submenu2;
+			case'b':
+			{
+				cout << "Input the two floating point operands in decimal format: \n";
+				cin >> f1NM98;
+				cin >> f2NM98;
+				cout << "The first floating point value is " << f1NM98 << endl;
+				cout << "The second floating point value is " << f2NM98 << endl;
+				fsubNM98 = fsubtraction(f1NM98, f2NM98);
+				cout << "The difference of " << f1NM98 << " and " << f2NM98 << " is " << fsubNM98 << endl;
+				cout << "=============================================================\n";
+				break;
+			}
+			case'c':
+			{
+				cout << "Input the two floating point operands in decimal format: \n";
+				cin >> f1NM98;
+				cin >> f2NM98;
+				cout << "The first floating point value is " << f1NM98 << endl;
+				cout << "The second floating point value is " << f2NM98 << endl;
+				fprodNM98 = fmultiplication(f1NM98, f2NM98);
+				cout << "The product of " << f1NM98 << " and " << f2NM98 << " is " << fprodNM98 << endl;
+				cout << "=============================================================\n";
+				break;
+			}
+			case'd':
+			{
+				cout << "Input the two floating point operands in decimal format: \n";
+				cin >> f1NM98;
+				cin >> f2NM98;
+				cout << "The first floating point value is " << f1NM98 << endl;
+				cout << "The second floating point value is " << f2NM98 << endl;
+				fquotNM98 = fdivision(f1NM98, f2NM98);
+				cout << "The quotient of " << f1NM98 << " and " << f2NM98 << " is " << fquotNM98 << endl;
+				cout << "=============================================================\n";
+				break;
+			}
+			case'e': //square root
+			{
+				cout << "Input the two floating point operands in decimal format: \n";
+				cin >> f1NM98;
+				cout << "The first floating point value is " << f1NM98 << endl;
+				fsqrtNM98 = fsquareroot(f1NM98);
+				cout << "The sqrt of " << f1NM98 << " is " << fsqrtNM98 << endl;
+				cout << "=============================================================\n";
+				break;
+			}
+			case'f'://absolute value
+			{
+				cout << "Input the two floating point operands in decimal format: \n";
+				cin >> f1NM98;
+				cout << "The first floating point value is " << f1NM98 << endl;
+				fabsNM98 = fabsolute(f1NM98);
+				cout << "The absolute value of " << f1NM98 << " is " << fabsNM98 << endl;
+				cout << "=============================================================\n";
+				break;
+			}
+			case'g'://F to C 
+			{
+				cout << "Input the floating point operands for Fahrenheit in decimal format: \n";
+				cin >> f1NM98;
+				cout << "The floating point value is " << f1NM98 << endl;
+				ftempConvNM98 = temperatureConv(f1NM98);
+				cout << "The temperature in C of " << f1NM98 << "F, is: " << ftempConvNM98 << endl;
+				cout << "=============================================================\n";
+				break;
+			}
+			default: goto QuitLableNM98;
+			}
+			goto MenuNM98;
 		}
-		else if (ch2=='2')
+		else if (ch2NM98 == '2')
 		{
-		Submenu2:
+		Submenu2NM98:
 			cout << "a, Input two floating point operands for addition and display the sum in the decimal format.\n";
-			cout << "b, Input two floating point operands for subtraction and display the difference in the decimal format. \n";
-			cout << "q, Quit";
+			cout << "b, Input two floating point operands for subtraction and display the difference in the decimal format.\n";
+			cout << "c, Input two floating point operands for multiplication and display the difference in the decimal format.\n";
+			cout << "d, Input two floating point operands for division and display the difference in the decimal format.\n";
+			cout << "e, Input two floating point operands for number^power and display the difference in the decimal format.\n";
+			cout << "q, Quit\n";
 
-			cin >> ch;
-			cout << "You chose: " << ch << endl; 
-			ch3 = ch;
-			switch (ch3) 
+			cin >> chNM98;
+			cout << "You chose: " << chNM98 << endl;
+			ch3NM98 = chNM98;
+			switch (ch3NM98)
 			{
-				case 'a':
-				{
-					cout << "Input the two floating point operands in decimal format: \n";
-					cin >> d1;
-					cin >> d2;
-					cout << "The first floating point value is " << d1 << endl;
-					cout << "The second floating point value is " << d2 << endl;
-					dsum = faddition(d1, d2);
-					cout << "The sum of " << d1 << " and " << d2 << " is " << dsum << endl;
-					cout << "=============================================================";
-					break;
-				}
-				case 'b':
-				{
-					cout << "Input the two floating point operands in decimal format: \n";
-					cin >> d1;
-					cin >> d2;
-					cout << "The first floating point value is " << d1 << endl;
-					cout << "The second floating point value is " << d2 << endl;
-					dsub = fsubtraction(d1, d2);
-					cout << "The difference of " << d1 << " and " << d2 << " is " << dsub << endl;
-					cout << "=============================================================";
-					break; 
-				}
-				case 'c':
-				{
-
-				}
-				case 'd':
-				{
-
-				}
-				case 'e':
-				{
-
-				}
-				default: goto QuitLable;
+			case 'a':
+			{
+				cout << "Input the two floating point operands in decimal format: \n";
+				cin >> d1NM98;
+				cin >> d2NM98;
+				cout << "The first floating point value is " << d1NM98 << endl;
+				cout << "The second floating point value is " << d2NM98 << endl;
+				dsumNM98 = daddition(d1NM98, d2NM98);
+				cout << "The sum of " << d1NM98 << " and " << d2NM98 << " is " << dsumNM98 << endl;
+				cout << "=============================================================\n";
+				break;
 			}
-			goto Submenu2;
+			case 'b':
+			{
+				cout << "Input the two floating point operands in decimal format: \n";
+				cin >> d1NM98;
+				cin >> d2NM98;
+				cout << "The first floating point value is " << d1NM98 << endl;
+				cout << "The second floating point value is " << d2NM98 << endl;
+				dsubNM98 = dsubtraction(d1NM98, d2NM98);
+				cout << "The difference of " << d1NM98 << " and " << d2NM98 << " is " << dsubNM98 << endl;
+				cout << "=============================================================\n";
+				break;
+			}
+			case 'c':
+			{
+				cout << "Input the two floating point operands in decimal format: \n";
+				cin >> d1NM98;
+				cin >> d2NM98;
+				cout << "The first floating point value is " << d1NM98 << endl;
+				cout << "The second floating point value is " << d2NM98 << endl;
+				dprodNM98 = dmultiplication(d1NM98, d2NM98);
+				cout << "The product of " << d1NM98 << " and " << d2NM98 << " is " << dprodNM98 << endl;
+				cout << "=============================================================\n";
+				break;
+			}
+			case 'd':
+			{
+				cout << "Input the two floating point operands in decimal format: \n";
+				cin >> d1NM98;
+				cin >> d2NM98;
+				cout << "The first floating point value is " << d1NM98 << endl;
+				cout << "The second floating point value is " << d2NM98 << endl;
+				dquotNM98 = ddivision(d1NM98, d2NM98);
+				cout << "The quotient of " << d1NM98 << " and " << d2NM98 << " is " << dquotNM98 << endl;
+				cout << "=============================================================";
+				break;
+			}
+			case 'e':
+			{
+				cout << "Input the two floating point operands in decimal format: [number, then power] \n";
+				cin >> d1NM98;
+				cin >> d2NM98;
+				cout << "The entered number is " << d1NM98 << endl;
+				cout << "The entered power is " << d2NM98 << endl;
+				dpowNM98 = dpower(d1NM98, d2NM98);
+				cout << "The number " << d1NM98 << " to the power of " << d2NM98 << " is " << dpowNM98 << endl;
+				cout << "=============================================================\n";
+				break;
+			}
+			default: goto QuitLableNM98;
+			}
+			goto MenuNM98;
 		}
 		else
 		{
-			goto EndLable;
+			goto EndLableNM98;
 		}
-	QuitLable:
-	cout << "Would you like to continue floating point arithmetic operations? Y/N: \n";
-	cin >> ch;
-	ch1 = ch;
+	QuitLableNM98:
+		cout << "Would you like to continue floating point arithmetic operations? Y/N: \n";
+		cin >> chNM98;
+		ch1NM98 = chNM98;
 	}
-EndLable:
+EndLableNM98:
 	cout << "Exit program\n";
 	system("pause");
 	exit(0);
 	return 0;
 }
-float faddition(float x, float y)
+float faddition(float xNM98, float yNM98)
 {
-	float f;
+	float fNM98;
 	_asm
 	{
-		FLD x;	//PUSH x
-		FLD y;	//PUSH y, Move x further up stack
+		FLD xNM98;	//PUSH x
+		FLD yNM98;	//PUSH y, Move x further up stack
 		FADD;	//add stack[0] and stack[1]. store at stack[0]
-		FST f;	//copy to f
+		FST fNM98;	//copy to f
 	}
-	return f;
+	return fNM98;
 }
-float fsubtraction(float x, float y)
+float fsubtraction(float xNM98, float yNM98)
 {
-	float f;
-	_asm 
+	float fNM98;
+	_asm
 	{
-		FLD x;
-		FLD y;
+		FLD xNM98;
+		FLD yNM98;
 		FSUB ST(1), ST(0);	//sub stack[0]-stack[1], store in stack[1]
 		FXCH ST(1);			//move difference to stack[0]
-		FST f;				//copy to f
+		FST fNM98;				//copy to f
 	}
-	return f;
+	return fNM98;
 }
-float fmultiplication(float x, float y)
+float fmultiplication(float xNM98, float yNM98)
 {
-	float f;
+	float fNM98;
 	_asm
 	{
-		FLD x;
-		FLD y;
+		FLD xNM98;
+		FLD yNM98;
 		FMUL;	//mul stack[0] and stack[1], store at stack[0]
-		FSTP f; //copy to f and pop from stack[0]
+		FSTP fNM98; //copy to f and pop from stack[0]
 	}
-	return f;
+	return fNM98;
 }
-float fdivision(float x, float y)
+float fdivision(float xNM98, float yNM98)
 {
-	float f;
+	float fNM98;
 	_asm
 	{
-		FLD x;
-		FLD y;
+		FLD xNM98;
+		FLD yNM98;
 		FDIV ST(1), ST(0);	//div stack[0]-stack[1], store in stack[1]
 		FXCH ST(1);			//move difference to stack[0]
-		FSTP f;				//copy to f and pop from stack[0]					//FSTP not FTSP. The error cost me 2 days. 'opcode' error C2400
+		FSTP fNM98;				//copy to f and pop from stack[0]		
 	}
-	return f;
+	return fNM98;
 }
-float fsquareroot(float x)
+float fsquareroot(float xNM98)
 {
-	float f;
+	float fNM98;
 	_asm
 	{
-		FLD x;
+		FLD xNM98;
 		FSQRT;
-		FST f;
+		FST fNM98;
 	}
-	return f;
+	return fNM98;
 }
-float fabsolute(float x)
+float fabsolute(float xNM98)
 {
-	float f;
+	float fNM98;
 	_asm
 	{
-		FLD x;
+		FLD xNM98;
 		FABS;
-		FST f;
+		FST fNM98;
 	}
-	return f;
+	return fNM98;
 }
-float temperatureConv(float fahrenheit)
+float temperatureConv(float fahrenheitNM98)
 {
-	float f;
-	float f1;
-	float f2;
-	float f32 = 32.0;
-	float f5 = 5.0;
-	float f9 = 9.0;
+	float fNM98;
+	float f1NM98;			//to store the first result
+	float f2NM98;			//to store the second result
+	float f32NM98 = 32.0;
+	float f5NM98 = 5.0;
+	float f9NM98 = 9.0;
 	_asm
 	{
 		//subtract 32
-		FLD fahrenheit;
-		FLD f32;
+		FLD fahrenheitNM98;
+		FLD f32NM98;
 		FSUB ST(1), ST(0);	//sub stack[0]-stack[1], store in stack[1]
 		FXCH ST(1);			//move difference to stack[0]
-		FSTP f1;
+		FSTP f1NM98;
 		//divide 9/5
-		FLD f9; //mess around with this---------------------------------------------------------------------------------------------------------------------
-		FLD f5;
+		FLD f5NM98;//For F to C, it's 5/9, if it was C to F, it'd be 9/5
+		FLD f9NM98;
 		FDIV ST(1), ST(0);	//div stack[0]-stack[1], store in stack[1]
 		FXCH ST(1);			//move difference to stack[0]
-		FSTP f2;															//Same here, FSTP not FTSP. The error cost me 2 days. 'opcode' error C2400
+		FSTP f2NM98;
 		//multiply f-32 by 9/5
-		FLD f1;
-		FLD f2;
+		FLD f1NM98;
+		FLD f2NM98;
 		FMUL;
-		FSTP f;
+		FSTP fNM98;
 	}
-	return f;
+	return fNM98;
 }
 
-double daddition(double x, double y)
+double daddition(double xNM98, double yNM98)
 {
-	double d;
+	double dNM98;
 	_asm
 	{
-		FLD x;
-		FLD y;
-		FADD;  //add
-		FST d; //copy to d
+		FLD xNM98;
+		FLD yNM98;
+		FADD;		//add
+		FST dNM98;	//copy to d
 	}
-	return d;
+	return dNM98;
 }
-double dsubtraction(double x, double y)
+double dsubtraction(double xNM98, double yNM98)
 {
-	double d;
+	double dNM98;
 	_asm
 	{
-		FLD x;
-		FLD y;
+		FLD xNM98;
+		FLD yNM98;
 		FSUB ST(1), ST(0); //0 - 1, store in 1
 		FXCH ST(1);		   //move to 0
-		FST d;
+		FST dNM98;
 	}
+	return dNM98;
 }
-double dmultiplication(double x, double y)
+double dmultiplication(double xNM98, double yNM98)
 {
-	double d;
+	double dNM98;
 	_asm
 	{
-		FLD x;
-		FLD y;
+		FLD xNM98;
+		FLD yNM98;
 		FMUL;
-		FSTP d;
+		FSTP dNM98;
 	}
-	return d;
+	return dNM98;
 }
-double ddivision(double divident, double divisor)
+double ddivision(double dividentNM98, double divisorNM98)
 {
-	double d;
+	double dNM98;
 	_asm
 	{
-		FLD divident;
-		FLD divisor;
+		FLD dividentNM98;
+		FLD divisorNM98;
 		FDIV ST(1), ST(0);  //division as always
 		FXCH ST(1);
-		FSTP d;
+		FSTP dNM98;
 	}
-	return d;
+	return dNM98;
 }
-double dpower(double d, double power)
+double dpower(double dNM98, double powerNM98)
 {
-	double d1;
+	double resultNM98;
+	double d1NM98 = 1;
+	int iNM98;
 	_asm
 	{
-		FLD d;
-		FLD d;
-		FMUL;
+		FLD dNM98;			//preload the register
 	}
-	return d1;
-}
-//from part 2, add:
-// F to C
-// Abs val
-//sqrt
-//power(x^p) thingie
-//
-//add all into the switch after submenu2
-//don't forget variable names
+	if (powerNM98 > 0)
+	{
+		for (iNM98 = 1; iNM98 < powerNM98; iNM98++)
+		{
 
+			_asm
+			{
+				FLD dNM98;		//load the value
+				FMUL;			//multiply
+			}
+		}	
+	}
+	else if (powerNM98 < 0)
+	{
+		for (iNM98 = 1; iNM98 > powerNM98; iNM98--)
+		{
+
+			_asm
+			{
+				FLD dNM98;				//load the value
+				FDIV ST(1), ST(0);	//division as usual
+				FXCH ST(1);
+			}
+		}
+	}
+	else
+	{
+		_asm
+		{
+			FLD d1NM98;
+		}
+	}
+	_asm
+	{
+		FST resultNM98;		//unload our value
+	}
+	return resultNM98;
+}
+
+
+
+
+//don't forget variable names
