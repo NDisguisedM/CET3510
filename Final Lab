@@ -7,28 +7,28 @@ using std::cin;
 
 //Function Declarations
 //Conversion Functions
-double dFeetToInchesConversion(double d1);
-double dInchesToFeetConversion(double d1);
-double dFeetToMilesConversion(double d1);
-double dMilesToFeetConversion(double d1);
-double dSqMetersToSqFeetConversion(double d1);
-double dSqFeetToSqMetersConversion(double d1);
-double dPoundsToGramsConversion(double d1);
-double dGramsToPoundsConversion(double d1);
+double dFeetToInchesConversionNM98(double d1NM98);
+double dInchesToFeetConversionNM98(double d1NM98);
+double dFeetToMilesConversionNM98(double d1NM98);
+double dMilesToFeetConversionNM98(double d1NM98);
+double dSqMetersToSqFeetConversionNM98(double d1NM98);
+double dSqFeetToSqMetersConversionNM98(double d1NM98);
+double dPoundsToGramsConversionNM98(double d1NM98);
+double dGramsToPoundsConversionNM98(double d1NM98);
 //Calculation Functions
-double dLengthOfCircle(double dRadius);
-double dAreaofCircle(double dRadius);
-double dVolumeOfClosedCylinder(double dRadius, double dHeight);
-double dVolumeOfCylinder(double dRadius, double dHeight);
+double dLengthOfCircleNM98(double dRadiusNM98);
+double dAreaofCircleNM98(double dRadiusNM98);
+double dVolumeOfClosedCylinderNM98(double dRadiusNM98, double dHeightNM98);
+double dVolumeOfCylinderNM98(double dRadiusNM98, double dHeightNM98);
 
-
+//NM98
 
 int main()
 {
 	//declaration of many variables, inline to save space
 	char chNM98, ch1NM98, ch2NM98, ch3NM98;
-	double d1, dRadius, dHeight, dLofC, dAofC, dVolofCyl, dVolofCloCyl;		//variables for Calculations
-	double dFt2In, dIn2Ft, dFt2Mi, dMi2Ft, dSqM2SqF, dSqF2SqM, dP2G, dG2P;	//Variables for Conversions
+	double d1NM98, dRadiusNM98, dHeightNM98, dLofCNM98, dAofCNM98, dVolofCylNM98, dVolofCloCylNM98;		//variables for Calculations
+	double dFt2InNM98, dIn2FtNM98, dFt2MiNM98, dMi2FtNM98, dSqM2SqFNM98, dSqF2SqMNM98, dP2GNM98, dG2PNM98;	//Variables for Conversions
 
 	cout << "Start the Calculator? Y/N\n";
 	cin >> chNM98;
@@ -67,73 +67,73 @@ int main()
 			case 'a':
 			{
 				cout << "Please enter feet as a floating point number in decimal format: \n";
-				cin >> d1;
-				cout << "The entered floating point value is: " << d1 << endl;
-				dFt2In = dFeetToInchesConversion(d1);
-				cout << "\t" << d1 << " Feet converted to Inches is: " << dFt2In << "in\n";
+				cin >> d1NM98;
+				cout << "The entered floating point value is: " << d1NM98 << endl;
+				dFt2InNM98 = dFeetToInchesConversionNM98(d1NM98);
+				cout << "\t" << d1NM98 << " Feet converted to Inches is: " << dFt2InNM98 << "in\n";
 				break;
 			}
 			case 'b':
 			{
 				cout << "Please enter inches as a floating point number in decimal format: \n";
-				cin >> d1;
-				cout << "The entered floating point value is: " << d1 << endl;
-				dIn2Ft = dInchesToFeetConversion(d1);
-				cout << "\t" << d1 << " Inches converted to Feet is: " << dIn2Ft << "ft\n";
+				cin >> d1NM98;
+				cout << "The entered floating point value is: " << d1NM98 << endl;
+				dIn2FtNM98 = dInchesToFeetConversionNM98(d1NM98);
+				cout << "\t" << d1NM98 << " Inches converted to Feet is: " << dIn2FtNM98 << "ft\n";
 				break;
 			}
 			case 'c':
 			{
 				cout << "Please enter feet as a floating point number in decimal format: \n";
-				cin >> d1;
-				cout << "The entered floating point value is: " << d1 << endl;
-				dFt2Mi = dFeetToMilesConversion(d1);
-				cout << "\t" << d1 << " Feet converted to Miles is: " << dFt2Mi << "mi\n";
+				cin >> d1NM98;
+				cout << "The entered floating point value is: " << d1NM98 << endl;
+				dFt2MiNM98 = dFeetToMilesConversionNM98(d1NM98);
+				cout << "\t" << d1NM98 << " Feet converted to Miles is: " << dFt2MiNM98 << "mi\n";
 				break;
 			}
 			case 'd':
 			{
 				cout << "Please enter miles as a floating point number in decimal format: \n";
-				cin >> d1;
-				cout << "The entered floating point value is: " << d1 << endl;
-				dMi2Ft = dMilesToFeetConversion(d1);
-				cout << "\t" << d1 << " Miles converted to Feet is: " << dMi2Ft << "ft\n";
+				cin >> d1NM98;
+				cout << "The entered floating point value is: " << d1NM98 << endl;
+				dMi2FtNM98 = dMilesToFeetConversionNM98(d1NM98);
+				cout << "\t" << d1NM98 << " Miles converted to Feet is: " << dMi2FtNM98 << "ft\n";
 				break;
 			}
 			case 'e':
 			{
 				cout << "Please enter squared meters as a floating point number in decimal format: \n";
-				cin >> d1;
-				cout << "The entered floating point value is: " << d1 << endl;
-				dSqM2SqF = dSqMetersToSqFeetConversion(d1);
-				cout << "\t" << d1 << " Meters^2 converted to Feet^2 is: " << dSqM2SqF << "ft^2\n";
+				cin >> d1NM98;
+				cout << "The entered floating point value is: " << d1NM98 << endl;
+				dSqM2SqFNM98 = dSqMetersToSqFeetConversionNM98(d1NM98);
+				cout << "\t" << d1NM98 << " Meters^2 converted to Feet^2 is: " << dSqM2SqFNM98 << "ft^2\n";
 				break;
 			}
 			case 'f':
 			{
 				cout << "Please enter squared feet as a floating point number in decimal format: \n";
-				cin >> d1;
-				cout << "The entered floating point value is: " << d1 << endl;
-				dSqF2SqM = dSqFeetToSqMetersConversion(d1);
-				cout << "\t" << d1 << " Feet^2 converted to Meters^2 is: " << dSqF2SqM << "m^2\n";
+				cin >> d1NM98;
+				cout << "The entered floating point value is: " << d1NM98 << endl;
+				dSqF2SqMNM98 = dSqFeetToSqMetersConversionNM98(d1NM98);
+				cout << "\t" << d1NM98 << " Feet^2 converted to Meters^2 is: " << dSqF2SqMNM98 << "m^2\n";
 				break;
 			}
 			case 'g':
 			{
 				cout << "Please enter lbs as a floating point number in decimal format: \n";
-				cin >> d1;
-				cout << "The entered floating point value is: " << d1 << endl;
-				dP2G = dPoundsToGramsConversion(d1);
-				cout << "\t" << d1 << " Pounds converted to Grams is: " << dP2G << "g\n";
+				cin >> d1NM98;
+				cout << "The entered floating point value is: " << d1NM98 << endl;
+				dP2GNM98 = dPoundsToGramsConversionNM98(d1NM98);
+				cout << "\t" << d1NM98 << " Pounds converted to Grams is: " << dP2GNM98 << "g\n";
 				break;
 			}
 			case 'h':
 			{
 				cout << "Please enter grams as a floating point number in decimal format: \n";
-				cin >> d1;
-				cout << "The entered floating point value is: " << d1 << endl;
-				dG2P = dGramsToPoundsConversion(d1);
-				cout << "\t" << d1 << " Grams converted to Pounds is: " << dG2P << "lbs\n";
+				cin >> d1NM98;
+				cout << "The entered floating point value is: " << d1NM98 << endl;
+				dG2PNM98 = dGramsToPoundsConversionNM98(d1NM98);
+				cout << "\t" << d1NM98 << " Grams converted to Pounds is: " << dG2PNM98 << "lbs\n";
 				break;
 			}
 			default: goto QuitLableNM98;
@@ -157,39 +157,39 @@ int main()
 			case 'a':
 			{
 				cout << "Please enter the radius as a floating point number in decimal format: \n\n";
-				cin >> dRadius;
-				cout << "The entered floating point value is: " << dRadius << endl;
-				dLofC = dLengthOfCircle(dRadius);
-				cout << "\tLenght of a circle with radius = " << dRadius << " is: " << dLofC << endl;
+				cin >> dRadiusNM98;
+				cout << "The entered floating point value is: " << dRadiusNM98 << endl;
+				dLofCNM98 = dLengthOfCircleNM98(dRadiusNM98);
+				cout << "\tLenght of a circle with radius = " << dRadiusNM98 << " is: " << dLofCNM98 << endl;
 				break;
 			}
 			case 'b':
 			{
 				cout << "Please enter the radius as a floating point number in decimal format: \n";
-				cin >> dRadius;
-				cout << "The entered floating point value is: " << dRadius << endl;
-				dAofC = dAreaofCircle(dRadius);
-				cout << "\tArea of a circle with radius = " << dRadius << " is: " << dAofC << endl;
+				cin >> dRadiusNM98;
+				cout << "The entered floating point value is: " << dRadiusNM98 << endl;
+				dAofCNM98 = dAreaofCircleNM98(dRadiusNM98);
+				cout << "\tArea of a circle with radius = " << dRadiusNM98 << " is: " << dAofCNM98 << endl;
 				break;
 			}
 			case 'c':
 			{
 				cout << "Please enter the radius, followed by the height as floating point numbers in decimal format: \n";
-				cin >> dRadius;
-				cin >> dHeight;
-				cout << "The entered floating point value is: " << dRadius << endl;
-				dVolofCloCyl = dVolumeOfCylinder(dRadius, dHeight);
-				cout << "\tVolume of a Closed Cylinder with radius = " << dRadius << " and height = " << dHeight << " is: " << dVolofCloCyl << endl;
+				cin >> dRadiusNM98;
+				cin >> dHeightNM98;
+				cout << "The entered floating point value is: " << dRadiusNM98 << endl;
+				dVolofCloCylNM98 = dVolumeOfClosedCylinderNM98(dRadiusNM98, dHeightNM98);
+				cout << "\tVolume of a Closed Cylinder with radius = " << dRadiusNM98 << " and height = " << dHeightNM98 << " is: " << dVolofCloCylNM98 << endl;
 				break;
 			}
 			case 'd':
 			{
 				cout << "Please enter the radius, followed by the height as floating point numbers in decimal format: \n";
-				cin >> dRadius;
-				cin >> dHeight;
-				cout << "The entered floating point value is: " << dRadius << endl;
-				dVolofCyl = dVolumeOfCylinder(dRadius, dHeight);
-				cout << "\tVolume of a Cylinder with radius = " << dRadius << " and height = " << dHeight << " is: " << dVolofCyl << endl;
+				cin >> dRadiusNM98;
+				cin >> dHeightNM98;
+				cout << "The entered floating point value is: " << dRadiusNM98 << endl;
+				dVolofCylNM98 = dVolumeOfCylinderNM98(dRadiusNM98, dHeightNM98);
+				cout << "\tVolume of a Cylinder with radius = " << dRadiusNM98 << " and height = " << dHeightNM98 << " is: " << dVolofCylNM98 << endl;
 				break;
 			}
 			default: goto QuitLableNM98;
@@ -215,195 +215,195 @@ EndLableNM98:
 
 
 //Conversion Functions
-double dFeetToInchesConversion(double d1) // in
+double dFeetToInchesConversionNM98(double d1NM98) // in
 {
-	double d;			
-	double conversionFactor = 12;
+	double dNM98;
+	double conversionFactorNM98 = 12;
 	_asm
 	{
-		FLD d1;
-		FLD conversionFactor;
+		FLD d1NM98;
+		FLD conversionFactorNM98;
 		FMUL;
-		FSTP d;
+		FSTP dNM98;
 	}
-	return d;
+	return dNM98;
 }
-double dInchesToFeetConversion(double d1) // ft  |  ft = in/12  |  in = ft*12
+double dInchesToFeetConversionNM98(double d1NM98) // ft  |  ft = in/12  |  in = ft*12
 {
-	double d;
-	double conversionFactor = 12;
+	double dNM98;
+	double conversionFactorNM98 = 12;
 	_asm
 	{
-		FLD d1;
-		FLD conversionFactor;
+		FLD d1NM98;
+		FLD conversionFactorNM98;
 		FDIV ST(1), ST(0);
 		FXCH ST(1);
-		FSTP d;
+		FSTP dNM98;
 	}
-	return d;
+	return dNM98;
 }
-double dFeetToMilesConversion(double d1) // miles
+double dFeetToMilesConversionNM98(double d1NM98) // miles
 {
-	double d;			
-	double conversionFactor = 5280;
+	double dNM98;
+	double conversionFactorNM98 = 5280;
 	_asm
 	{
-		FLD d1;
-		FLD conversionFactor;
+		FLD d1NM98;
+		FLD conversionFactorNM98;
 		FDIV ST(1), ST(0);
 		FXCH ST(1);
-		FSTP d;
+		FSTP dNM98;
 	}
-	return d;
+	return dNM98;
 }
-double dMilesToFeetConversion(double d1)  // ft  |  mi = ft/5280  |  ft=mi*5280
+double dMilesToFeetConversionNM98(double d1NM98)  // ft  |  mi = ft/5280  |  ft=mi*5280
 {
-	double d;
-	double conversionFactor = 5280;
+	double dNM98;
+	double conversionFactorNM98 = 5280;
 	_asm
 	{
-		FLD d1;
-		FLD conversionFactor;
+		FLD d1NM98;
+		FLD conversionFactorNM98;
 		FMUL;
-		FSTP d;
+		FSTP dNM98;
 	}
-	return d;
+	return dNM98;
 }
-double dSqMetersToSqFeetConversion(double d1) //sq feet
+double dSqMetersToSqFeetConversionNM98(double d1NM98) //sq feet
 {
-	double d;			//
-	double conversionFactor = 10.764;
+	double dNM98;			//
+	double conversionFactorNM98 = 10.764;
 	_asm
 	{
-		FLD d1;
-		FLD conversionFactor;
+		FLD d1NM98;
+		FLD conversionFactorNM98;
 		FMUL;
-		FSTP d;
+		FSTP dNM98;
 	}
-	return d;
+	return dNM98;
 }
-double dSqFeetToSqMetersConversion(double d1) // sq meters  |  m^2=ft^2/10764  |  f^2 = 10764*m^2
+double dSqFeetToSqMetersConversionNM98(double d1NM98) // sq meters  |  m^2=ft^2/10764  |  f^2 = 10764*m^2
 {
-	double d;
-	double conversionFactor = 10.764;
+	double dNM98;
+	double conversionFactorNM98 = 10.764;
 	_asm
 	{
-		FLD d1;
-		FLD conversionFactor;
+		FLD d1NM98;
+		FLD conversionFactorNM98;
 		FDIV ST(1), ST(0);
 		FXCH ST(1);
-		FSTP d;
+		FSTP dNM98;
 	}
-	return d;
+	return dNM98;
 }
-double dPoundsToGramsConversion(double d1) // pounds
+double dPoundsToGramsConversionNM98(double d1NM98) // pounds
 {
-	double d;								
-	double conversionFactor = 453.592;
+	double dNM98;
+	double conversionFactorNM98 = 453.592;
 	_asm
 	{
-		FLD d1;
-		FLD conversionFactor;
+		FLD d1NM98;
+		FLD conversionFactorNM98;
 		FMUL;
-		FSTP d;
+		FSTP dNM98;
 	}
-	return d;
+	return dNM98;
 }
-double dGramsToPoundsConversion(double d1) //  grams  |  lbs = 453.592*g  |  g = lbs/453.592
+double dGramsToPoundsConversionNM98(double d1NM98) //  grams  |  lbs = 453.592*g  |  g = lbs/453.592
 {
-	double d;
-	double conversionFactor = 453.592;
+	double dNM98;
+	double conversionFactorNM98 = 453.592;
 	_asm
 	{
-		FLD d1;
-		FLD conversionFactor;
+		FLD d1NM98;
+		FLD conversionFactorNM98;
 		FDIV ST(1), ST(0);
 		FXCH ST(1);
-		FSTP d;
+		FSTP dNM98;
 	}
-	return d;
+	return dNM98;
 }
 
 //Calculation Functions
-double dLengthOfCircle(double dRadius) //formula = 2*pi*r
+double dLengthOfCircleNM98(double dRadiusNM98) //formula = 2*pi*r
 {
-	double d1;
-	double dpi = 3.141592;
-	double dTwo = 2;
+	double d1NM98;
+	double dpiNM98 = 3.141592;
+	double dTwoNM98 = 2;
 	_asm
 	{
-		FLD dRadius;
-		FLD dpi;	
+		FLD dRadiusNM98;
+		FLD dpiNM98;
 		FMUL;		//multiply Radius and pi
-		FLD dTwo;	
+		FLD dTwoNM98;
 		FMUL;		//multiply the pi*r by 2
-		FSTP d1;	
+		FSTP d1NM98;
 	}
-	return d1;
+	return d1NM98;
 }
-double dAreaofCircle(double dRadius)//formula = pir^2  
+double dAreaofCircleNM98(double dRadiusNM98)//formula = pir^2  
 {
-	double d1;
-	double dpi = 3.141592;
+	double d1NM98;
+	double dpiNM98 = 3.141592;
 	_asm
 	{
-		FLD dpi;
-		FLD dRadius;
+		FLD dpiNM98;
+		FLD dRadiusNM98;
 		FMUL;			// multiply pi and R
-		FLD dRadius;
+		FLD dRadiusNM98;
 		FMUL;			// multiply piR and R
-		FSTP d1;
+		FSTP d1NM98;
 	}
-	return d1;
+	return d1NM98;
 }
-double dVolumeOfClosedCylinder(double dRadius, double dHeight) //formula = 2pirh + 2pir^2    
+double dVolumeOfClosedCylinderNM98(double dRadiusNM98, double dHeightNM98) //formula = 2pirh + 2pir^2    
 {
-	double d1;
-	double dpi = 3.141592;
-	double dTwo = 2;
-	double dtemp;
+	double d1NM98;
+	double dpiNM98 = 3.141592;
+	double dTwoNM98 = 2;
+	double dtempNM98;
 	_asm
 	{
 					// left part of the formula
-		FLD dRadius;
-		FLD dpi;
+		FLD dRadiusNM98;
+		FLD dpiNM98;
 		FMUL;		//multiply Radius and pi
-		FLD dHeight;
+		FLD dHeightNM98;
 		FMUL;		//multiply piR, H
-		FLD dTwo;	
+		FLD dTwoNM98;
 		FMUL;		//multiply piRH by 2
-		FSTP dtemp;	//temporarily store the 2pirh part of the formula,
+		FSTP dtempNM98;	//temporarily store the 2pirh part of the formula,
 					//and pop it off the stack
 
 					//right part of the formula
-		FLD dpi;
-		FLD dpi;
+		FLD dpiNM98;
+		FLD dpiNM98;
 		FMUL;		//multiply pi by pi to get pi^2 value
-		FLD dRadius;
+		FLD dRadiusNM98;
 		FMUL;		//multiply R by pi^2
-		FLD dTwo;
+		FLD dTwoNM98;
 		FMUL;		//multiply Rpi^2 by 2
-		FLD dtemp;
+		FLD dtempNM98;
 		FADD;		//finally add the two parts together
 
-		FSTP d1;	
+		FSTP d1NM98;
 	}
-	return d1;
+	return d1NM98;
 }
-double dVolumeOfCylinder(double dRadius, double dHeight) //formula = pir^2h
+double dVolumeOfCylinderNM98(double dRadiusNM98, double dHeightNM98) //formula = pir^2h
 {
-	double d1;
-	double dpi = 3.141592;
+	double d1NM98;
+	double dpiNM98 = 3.141592;
 	_asm
 	{
-		FLD dRadius;
-		FLD dpi;
+		FLD dRadiusNM98;
+		FLD dpiNM98;
 		FMUL;		//multiply Radius and pi
-		FLD dRadius;
+		FLD dRadiusNM98;
 		FMUL;		//multiply piR by R again to get piR^2 
-		FLD dHeight;
+		FLD dHeightNM98;
 		FMUL;		//multiply piR^2 by H
-		FSTP d1;
+		FSTP d1NM98;
 	}
-	return d1;
+	return d1NM98;
 }
