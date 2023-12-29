@@ -1,0 +1,13 @@
+CET 3510 - Microcomputer Systems Technology
+
+Course Description:
+An introduction to the basic concepts used in the Personal Computer (PC). 
+The role of software, hardware, the CPU, memory, storage, and peripherals is explored. 
+More advanced topics include system bus architecture and protocols for communication with peripherals and other computers, including local area networking. 
+Emphasis is on selecting hardware and software to meet specified performance requirements. 
+Laboratory exercises support the lecture and are carried out in the context of currently available operating systems, including utilities for system setup, benchmarking, and maintenance.
+
+This repository reflects all the laboratory exercises I programmed for this course. 
+It was taught in C++ with an addition of the Assembly(x86). 
+In all labs, the Professor, for this course, required the ground work to be done in Assembly(x86) and the beautification to be done in C++. 
+As in - All calculations, memory management, and other operations are to be done using _asm{} from C++. All variables, and displaying of those variables are to be done using C++.
