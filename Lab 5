@@ -1,0 +1,192 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{	
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///---Part 5.1---///
+	const int n = 5;
+	unsigned short u16NM98_arr[n] = { 0x0041, 0x0052, 0x1169, '12','aA' };
+	unsigned short *uPtr;
+	unsigned short u0NM98, u1NM98, u2NM98, u3NM98, u4NM98;
+	int i;
+	int u0NM98_addr, u1NM98_addr, u2NM98_addr, u3NM98_addr, u4NM98_addr;
+
+	cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+	cout << "The value of each element of the 16-bit array\n";
+	for (i = 0; i < n; i++)
+	{
+		cout << "The value of the element " << dec << i << " in an array is 0x" << hex << u16NM98_arr[i] << " and the size is " << sizeof(u16NM98_arr[i]) << " bytes" << endl;
+	}
+	printf("--------------------------------------------------------------------\n");
+	uPtr = u16NM98_arr;
+
+	cout << "The memory address of the array is 0x" << hex << uPtr << endl;
+
+	_asm
+	{
+		mov AX, [EBX];
+		mov u0NM98, AX;				//u0
+		mov u0NM98_addr, EBX;		//u0_addr
+
+		mov ECX, 2H;
+		add EBX, ECX;
+		mov AX, [EBX];
+		mov u1NM98, AX;				//u1
+		mov u1NM98_addr, EBX;		//u1_addr
+
+		mov AX, [EBX + 2H];
+		mov u2NM98, AX;				//u2
+
+		mov EDI, EBX;
+		add EDI, 2H;
+		mov u2NM98_addr, EDI;		//u2_addr
+
+		mov AX, [EBX + 4H];
+		mov u3NM98, AX;				//u3
+
+		mov EDI, EBX;
+		add EDI, 4H;
+		mov u3NM98_addr, EDI;		//u3_addr
+
+		mov AX, [EBX + 6H];
+		mov u4NM98, AX;				//u4
+		mov EDI, EBX;
+		add EDI, 6H;
+		mov u4NM98_addr, EDI;		//u4-addr
+	}
+	printf("--------------------------------------------------------------------\n");
+	cout << "The retrieved values 0x" << hex << u0NM98 << "\t at the address of 0x" << hex << u0NM98_addr << endl;
+	cout << "The retrieved values 0x" << hex << u1NM98 << "\t at the address of 0x" << hex << u1NM98_addr << endl;
+	cout << "The retrieved values 0x" << hex << u2NM98 << "\t at the address of 0x" << hex << u2NM98_addr << endl;
+	cout << "The retrieved values 0x" << hex << u3NM98 << "\t at the address of 0x" << hex << u3NM98_addr << endl;
+	cout << "The retrieved values 0x" << hex << u4NM98 << "\t at the address of 0x" << hex << u4NM98_addr << endl;
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///---Part 5.2---///
+	const int n2 = 5;
+	unsigned int u32NM98_arr[n2] = {0x00000041, 0x00000052, 0xabcd1169, '1234', 'aABc'};
+	unsigned int u02NM98, u12NM98, u22NM98, u32NM98, u42NM98;
+	unsigned int u02NM98_addr, u12NM98_addr, u22NM98_addr, u32NM98_addr, u42NM98_addr;
+	unsigned int * uPtr2;
+	int i2;
+
+	cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+	cout << "The value of each element of the 32-bit unsigned int array\n";
+	for (i2 = 0; i2 < n2; i2++)
+	{
+		cout << "The value of the element " << dec << i2 << " in an array is 0x" << hex << u32NM98_arr[i2] << " and the size is " << sizeof(u32NM98_arr[i2]) << " bytes" << endl;
+	}
+	printf("--------------------------------------------------------------------\n");
+	uPtr2 = u32NM98_arr;
+
+	cout << "The memory address of the array is 0x" << hex << uPtr2 << endl;
+	
+	//since the array is 32 bits, extend it from 2 to 4 hex, etc. 
+	_asm
+	{
+		mov EAX, [EBX];
+		mov u02NM98, EAX;				//u0
+		mov u02NM98_addr, EBX;		//u0_addr
+
+		mov ECX, 4H;
+		add EBX, ECX;
+		mov EAX, [EBX];
+		mov u12NM98, EAX;				//u1
+		mov u12NM98_addr, EBX;		//u1_addr
+
+		mov EAX, [EBX + 4H];
+		mov u22NM98, EAX;				//u2
+
+		mov EDI, EBX;
+		add EDI, 4H;			
+		mov u22NM98_addr, EDI;		//u2_addr
+
+		mov EAX, [EBX + 8H];
+		mov u32NM98, EAX;				//u3
+
+		mov EDI, EBX;
+		add EDI, 8H;			
+		mov u32NM98_addr, EDI;		//u3_addr 
+
+		mov EAX, [EBX + 0xC];
+		mov u42NM98, EAX;				//u4
+		mov EDI, EBX;
+		add EDI, 0xC;
+		mov u42NM98_addr, EDI;		//u4-addr
+	}
+	printf("--------------------------------------------------------------------\n");
+	cout << "The retrieved values 0x" << hex << u02NM98 << "\t at the address of 0x" << hex << u02NM98_addr << endl;
+	cout << "The retrieved values 0x" << hex << u12NM98 << "\t at the address of 0x" << hex << u12NM98_addr << endl;
+	cout << "The retrieved values 0x" << hex << u22NM98 << "\t at the address of 0x" << hex << u22NM98_addr << endl;
+	cout << "The retrieved values 0x" << hex << u32NM98 << "\t at the address of 0x" << hex << u32NM98_addr << endl;
+	cout << "The retrieved values 0x" << hex << u42NM98 << "\t at the address of 0x" << hex << u42NM98_addr << endl;
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	const int n2i = 5;//n will be reused
+	unsigned int i02NM98, i12NM98, i22NM98, i32NM98, i42NM98;
+	int i02NM98_addr, i12NM98_addr, i22NM98_addr, i32NM98_addr, i42NM98_addr;
+	signed int i32NM98_arr[n2i] = { 0x00000041, 0x00000052, 0xabcd1169, '1234', 'aABc' };
+	signed int* iPtr2;
+	int i2i;
+	cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+	cout << "The value of each element of the 32-bit signed int array\n";
+	for (i2i = 0; i2i < n2i; i2i++)
+	{
+		cout << "The value of the element " << dec << i2i << " in an array is 0x" << hex << i32NM98_arr[i2i] << " and the size is " << sizeof(i32NM98_arr[i2i]) << " bytes" << endl;
+	}
+	printf("--------------------------------------------------------------------\n");
+	iPtr2 = i32NM98_arr;
+
+	cout << "The memory address of the array is 0x" << hex << iPtr2 << endl;
+	//all changes made previously are necessary since int is 4 bytes
+	_asm
+	{
+		mov EAX, [EBX];
+		mov i02NM98, EAX;				//i0
+		mov i02NM98_addr, EBX;			//i0_addr
+
+		mov ECX, 4H;
+		add EBX, ECX;
+		mov EAX, [EBX];
+		mov i12NM98, EAX;				//u1
+		mov i12NM98_addr, EBX;			//i1_addr
+
+		mov EAX, [EBX + 4H];
+		mov i22NM98, EAX;				//i2
+
+		mov EDI, EBX;
+		add EDI, 4H;			
+		mov i22NM98_addr, EDI;			//i2_addr
+
+		mov EAX, [EBX + 8H];
+		mov i32NM98, EAX;				//i3
+
+		mov EDI, EBX;
+		add EDI, 8H;			
+		mov i32NM98_addr, EDI;			//i3_addr 
+
+		mov EAX, [EBX + 0xC];
+		mov i42NM98, EAX;				//i4
+		mov EDI, EBX;
+		add EDI, 0xC;
+		mov i42NM98_addr, EDI;			//i4-addr
+	}
+	printf("--------------------------------------------------------------------\n");
+	cout << "The retrieved values 0x" << hex << i02NM98 << "\t at the address of 0x" << hex << i02NM98_addr << endl;
+	cout << "The retrieved values 0x" << hex << i12NM98 << "\t at the address of 0x" << hex << i12NM98_addr << endl;
+	cout << "The retrieved values 0x" << hex << i22NM98 << "\t at the address of 0x" << hex << i22NM98_addr << endl;
+	cout << "The retrieved values 0x" << hex << i32NM98 << "\t at the address of 0x" << hex << i32NM98_addr << endl;
+	cout << "The retrieved values 0x" << hex << i42NM98 << "\t at the address of 0x" << hex << i42NM98_addr << endl;
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	system("pause");
+	exit(0);
+	return 0;
+}
