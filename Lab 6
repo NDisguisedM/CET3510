@@ -1,0 +1,144 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+
+int main() 
+{
+	
+	cout << "----------------------------- Unsigned Extension: Part 1 ------------------------------" << endl;
+
+	
+	unsigned short int us16NM98 = 0xfffd;	
+	signed short int s16NM98 = 0xfffd;		
+	unsigned int us32NM98;					
+	signed int s32NM98;						
+	
+	cout << "--\n";
+	cout << "A 16 bit unsigned number extending to 32 bit unsigned number\n";
+	cout << "unsigned hex value is \t" << hex << us16NM98 << endl;
+	cout << "decimal value is \t" << dec << us16NM98 << endl;
+
+	_asm
+	{
+		mov AX, us16NM98;	//move 16 bit number into 16 bit register
+		movzx EAX, AX;		//extend the register with the number inside, effectively extending the number
+		mov us32NM98, EAX;	//move the extended register to the 32 bit value
+	}
+
+	cout << "++\n";
+	cout << "After zero extension" << endl;
+	cout << "--\n";
+	cout << "whatever stupid comment\n";
+	cout << "unsigned hex value is \t" << hex << us32NM98 << endl;
+	cout << "decimal value is \t" << dec << us32NM98 << endl;
+	
+	
+
+	cout << "----------------------------- Signed Extension: Part 1 ------------------------------" << endl;
+
+	cout << "--\n";
+	cout << "A 16 bit signed number extending to 32 bit signed number\n";
+	cout << "signed hex value is \t" << hex << s16NM98 << endl;
+	cout << "decimal value is \t" << dec << s16NM98 << endl;
+
+	_asm
+	{
+		mov BX, s16NM98;	//move 16 bit number into 16 bit register
+		movsx EBX, BX;		//extend the register with the number inside, effectively extending the number
+		mov s32NM98, EBX;	//move the extended register to the 32 bit value
+	}
+
+	cout << "++\n";
+	cout << "After signed extension" << endl;
+	cout << "--\n";
+	cout << "whatever stupid comment\n";
+	cout << "signed hex value is \t" << hex << s32NM98 << endl;
+	cout << "decimal value is \t" << dec << s32NM98 << endl;
+	
+	// Part 6.2
+
+	cout << "----------------------------- Unsigned Extension: Part 2 ------------------------------" << endl;
+
+	unsigned char us8NM98 = 0xfd;
+	signed char s8NM98 = 0xfd;
+	unsigned short int us16NM98_P2;
+	signed short int s16NM98_P2;
+	unsigned int us32NM98_P2;
+	signed int s32NM98_P2;
+
+	cout << "--++--\n";
+	cout << "A 8 bit unsigned number extending to 16 bit unsigned number\n";
+	cout << "unsigned hex value is \t" << hex << us8NM98 << endl;
+	cout << "decimal value is \t" << dec << us8NM98 << endl;
+	cout << "the  ^2  symbol is 0xfd and thus 253 in ascii code, the value is correct" << endl;
+
+	//unsigned 8 to 16 bit extend
+	_asm
+	{
+		mov BL, us8NM98;		//move 8 bit number into 8 bit register
+		movzx BX, BL;			//extend the register with the number inside, effectively extending the number
+		mov us16NM98_P2, BX;	//move the extended register to the 16 bit value
+	}
+
+	cout << "++--++\n";
+	cout << "After zero extension" << endl;
+	cout << "--\n";
+	cout << "whatever stupid comment\n";
+	cout << "unsigned hex value is \t" << hex << us16NM98_P2 << endl;
+	cout << "decimal value is \t" << dec << us16NM98_P2 << endl;
+
+	//unsigned 8 to 32 bit extend
+
+	_asm
+	{
+		mov AL, us8NM98;			//move 8 bit number into 16 bit register
+		movzx EAX, AL;				//extend the register with the number inside, effectively extending the number
+		mov us32NM98_P2, EAX;		//move the extended register to the 32 bit value
+	}
+
+	cout << "++--++\n";
+	cout << "After zero extension" << endl;
+	cout << "--\n";
+	cout << "A 8 bit unsigned number extending to 32 bit unsigned number\n";
+	cout << "unsigned hex value is \t" << hex << us32NM98_P2 << endl;
+	cout << "decimal value is \t" << dec << us32NM98_P2 << endl;
+
+	//signed 8 to 16 bit extend
+
+	cout << "----------------------------- Signed Extension: Part 2 ------------------------------" << endl;
+
+	_asm
+	{
+		mov CL, s8NM98;		//move 8 bit number into 8 bit register
+		movsx CX, CL;			//extend the register with the number inside, effectively extending the number
+		mov s16NM98_P2, CX;	//move the extended register to the 16 bit value
+	}
+
+	cout << "++--++\n";
+	cout << "After signed extension" << endl;
+	cout << "--\n";
+	cout << "A 8 bit signed number extending to 16 bit signed number\n";
+	cout << "unsigned hex value is \t" << hex << s16NM98_P2 << endl;
+	cout << "decimal value is \t" << dec << s16NM98_P2 << endl;
+
+	//signed 8 to 32 bit extend
+
+	_asm
+	{
+		mov DL, s8NM98;				//move 8 bit number into 32 bit register
+		movsx EDX, DL;				//extend the register with the number inside, effectively extending the number
+		mov s32NM98_P2, EDX;		//move the extended register to the 32 bit value
+	}
+
+	cout << "++--++\n";
+	cout << "After signed extension" << endl;
+	cout << "--\n";
+	cout << "A 8 bit signed number extending to 32 bit signed number\n";
+	cout << "unsigned hex value is \t" << hex << s32NM98_P2 << endl;
+	cout << "decimal value is \t" << dec << s32NM98_P2 << endl;
+
+	system("pause");
+	exit(0);
+	return 0;
+}
