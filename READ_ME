@@ -11,3 +11,4 @@ This repository reflects all the laboratory exercises I programmed for this cour
 It was taught in C++ with an addition of the Assembly(x86). 
 In all labs, the Professor, for this course, required the ground work to be done in Assembly(x86) and the beautification to be done in C++. 
 As in - All calculations, memory management, and other operations are to be done using _asm{} from C++. All variables, and displaying of those variables are to be done using C++.
+We used Visual Studio 2022 for this course. 
